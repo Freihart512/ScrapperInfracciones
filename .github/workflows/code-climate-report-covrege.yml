@@ -1,0 +1,22 @@
+name: build
+on:
+  push:
+    branches:
+      - master
+jobs:
+  coverage:
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - run: npm install
+      - uses: paambaati/codeclimate-action@v6.0.0
+        env:
+          CC_TEST_REPORTER_ID: 88ec98087949ebdbf7eecd9b490b3ec8756e74235ba36892a5a675c5826f8d4a
+        with:
+          coverageCommand: npm run test
