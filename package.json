@@ -2,6 +2,10 @@
   "name": "scrapper-infracciones",
   "version": "1.0.0",
   "description": "Este proyecto es una interfaz para consultar infracciones vehiculares en jalisco",
+  "engines": {
+    "node": "18.x"
+  },
+  "type":"module",
   "main": "index.js",
   "scripts": {
     "test:coverage": "jest --coverage",

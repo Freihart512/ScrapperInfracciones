@@ -10,10 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: v1
+          ref: master
       - uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "18.x"
       - run: npm install
       - uses: paambaati/codeclimate-action@v6.0.0
         env:
