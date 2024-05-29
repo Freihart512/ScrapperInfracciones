@@ -1,8 +1,8 @@
-name: 'build'
+name: 'Build'
 on:
     pull_request
 jobs:
-    coverage:
+    Build:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
@@ -18,4 +18,4 @@ jobs:
         - name: Install dependencies
           run: pnpm install
         - name: Crate Build
-          run: pnpm run build
+          run: pnpm run compile

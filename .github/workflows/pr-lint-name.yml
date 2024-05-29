@@ -4,7 +4,16 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Install Dependencies
-        run: npm install @commitlint/config-conventional
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+      - uses: pnpm/action-setup@v3
+          with:
+            version: 9
+      - name: Use Node.js
+      - uses: actions/setup-node@v4
+          with:
+            node-version: "18.x"
+            cache: 'pnpm'
+      - name: Install dependencies
+          run: pnpm install @commitlint/config-conventional
       - uses: JulienKode/pull-request-name-linter-action@v0.5.0
