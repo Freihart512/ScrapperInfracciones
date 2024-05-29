@@ -3,15 +3,15 @@ steps:
   - uses: actions/checkout@v4
   - name: Install pnpm
   - uses: pnpm/action-setup@v3
-      with:
-        version: 9
+    with:
+      version: 9
   - name: Use Node.js
   - uses: actions/setup-node@v4
-      with:
-        node-version: "18.x"
-        cache: 'pnpm'
+    with:
+      node-version: 18.x
+      cache: pnpm
   - name: Install dependencies
-      run: pnpm install
+    run: pnpm install
   - name: Run eslint on changed files
     uses: tj-actions/eslint-changed-files@v25
     with:

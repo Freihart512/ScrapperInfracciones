@@ -1,14 +1,13 @@
-name: 'coverage'
-on:
-    pull_request
+name: coverage
+'on': pull_request
 jobs:
-    coverage:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v4
-              with:
-                node-version: "18.x"
-            uses: ArtiomTr/jest-coverage-report-action@v2.3.0
-              with:
-                package-manager: pnpm
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - uses: ArtiomTr/jest-coverage-report-action@v2.3.0
+        with: null
+        package-manager: pnpm

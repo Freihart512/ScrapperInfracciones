@@ -1,5 +1,5 @@
 name: build
-on:
+'on':
   push:
     branches:
       - master
@@ -12,15 +12,15 @@ jobs:
         with:
           ref: master
       - name: Install pnpm
-         uses: pnpm/action-setup@v3
-         with:
-           version: 9
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
       - uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: 18.x
       - run: pnpm install
       - uses: paambaati/codeclimate-action@v6.0.0
         env:
           CC_TEST_REPORTER_ID: 88ec98087949ebdbf7eecd9b490b3ec8756e74235ba36892a5a675c5826f8d4a
         with:
-          coverageCommand: pnpm run test:coverage
+          coverageCommand: 'pnpm run test:coverage'
