@@ -10,6 +10,7 @@
   "scripts": {
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
+    "compile:pr-check": "tsc",
     "compile": "rimraf ./dist && tsc",
     "start": "npm run compile && node ./dist/index.js",
     "lint": "eslint \"*/**/*.{js,ts}\" --fix"

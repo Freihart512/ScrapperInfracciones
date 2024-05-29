@@ -9,5 +9,5 @@ jobs:
         with:
           node-version: 18.x
       - uses: ArtiomTr/jest-coverage-report-action@v2.3.0
-        with: null
+        with:
         package-manager: pnpm

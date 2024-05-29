@@ -18,4 +18,4 @@ jobs:
         - name: Install dependencies
           run: pnpm install
         - name: Crate Build
-          run: pnpm run compile
+          run: pnpm run compile:pr-check
