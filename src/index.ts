@@ -1,7 +1,7 @@
 export function greet(name: string) {
   return `Hello, ${name}!`;
 }
-if (greet('hola') === 'hola') {
+if (greet('hola') == 'hola') {
   console.log('hey d');
 }
 
