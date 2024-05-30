@@ -4,16 +4,18 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: checkout
+        uses: actions/checkout@v4
       - name: Install pnpm
-      - uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v3
         with:
           version: 9
       - name: Use Node.js
-      - uses: actions/setup-node@v4
+        uses: actions/setup-node@v4
         with:
           node-version: 18.x
           cache: pnpm
       - name: Install dependencies
         run: pnpm install @commitlint/config-conventional
-      - uses: JulienKode/pull-request-name-linter-action@v0.5.0
+      - name: run linter
+        uses: JulienKode/pull-request-name-linter-action@v0.5.0
