@@ -12,7 +12,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18.x
-      - uses: ArtiomTr/jest-coverage-report-action@v2.3.0
-        with:
+      - name: Run test Script
+        uses: jwalton/gh-find-current-pr@v1
+          id: findPr
+        uses: ArtiomTr/jest-coverage-report-action@v2.3.0
+          with:
             test-script: pnpm run test:coverage
             package-manager: pnpm
+            prnumber: ${{ steps.findPr.outputs.number }}
