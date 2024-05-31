@@ -1,0 +1,27 @@
+name: coverage
+'on': pull_request
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - name: Get PR info
+        uses: jwalton/gh-find-current-pr@v1
+        id: findPr
+      - name: run tests
+        uses: ArtiomTr/jest-coverage-report-action@v2.3.0
+        with:
+          test-script: 'pnpm run test:coverage'
+          package-manager: pnpm
+          prnumber: '${{ steps.findPr.outputs.number }}'

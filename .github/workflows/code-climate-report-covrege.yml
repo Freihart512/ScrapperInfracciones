@@ -1,0 +1,30 @@
+name: build
+'on':
+  push:
+    branches:
+      - master
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    name: coverage
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          ref: master
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - name: SetUp Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - name: Install dependencies
+        run: pnpm install
+      - name: run codeclimate
+        uses: paambaati/codeclimate-action@v6.0.0
+        env:
+          CC_TEST_REPORTER_ID: 88ec98087949ebdbf7eecd9b490b3ec8756e74235ba36892a5a675c5826f8d4a
+        with:
+          coverageCommand: 'pnpm run test:coverage'
